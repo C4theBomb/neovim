@@ -2,20 +2,23 @@ return {
     { "sitiom/nvim-numbertoggle", lazy = false, },
     { "zbirenbaum/copilot.lua",   event = "InsertEnter",                             opts = require("configs.overrides").copilot },
     { "junegunn/gv.vim",          cmd = { "GV" } },
+    {
+        'tpope/vim-fugitive',
+        keys = {
+            { "<leader>gs", "<cmd>Git<CR>",         desc = "Git Toggle window" },
+            { "gu",         "<cmd>diffget //2<CR>", desc = "Git Diff right side" },
+            { "gh",         "<cmd>diffget //3<CR>", desc = "Git Diff left side" },
+        },
+    },
     { "mbbill/undotree",          cmd = { "UndotreeToggle" } },
-    { "nvim-tree/nvim-tree.lua",  cmd = { "NvimTreeToggle", "NvimTreeFocus" },       opts = require("configs.nvimtree") },
+    { "nvim-tree/nvim-tree.lua",  cmd = { "NvimTreeToggle", "NvimTreeFocus" },       config = function() require("configs.nvimtree") end },
     { "folke/trouble.nvim",       cmd = { "Trouble" },                               opts = {}, },
     { "folke/zen-mode.nvim",      keys = { "<leader>zz" },                           config = function() require( "configs.zenmode") end },
     { "stevearc/conform.nvim",    config = function() require("configs.conform") end },
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-            {
-                "zbirenbaum/copilot-cmp",
-                config = function()
-                    require("copilot_cmp").setup()
-                end,
-            },
+            { "zbirenbaum/copilot-cmp", config = function() require("copilot_cmp").setup() end },
         },
         opts = {
             sources = {
@@ -50,14 +53,6 @@ return {
             require("nvchad.configs.lspconfig").defaults()
             require("configs.lspconfig")
         end,
-    },
-    {
-        'tpope/vim-fugitive',
-        keys = {
-            { "<leader>gs", "<cmd>Git<CR>",         desc = "Git Toggle window" },
-            { "gu",         "<cmd>diffget //2<CR>", desc = "Git Diff right side" },
-            { "gh",         "<cmd>diffget //3<CR>", desc = "Git Diff left side" },
-        },
     },
     {
         "ThePrimeagen/harpoon",
