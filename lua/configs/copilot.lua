@@ -1,6 +1,4 @@
-local M = {}
-
-M.copilot = {
+local options = {
     suggestion = {
         enable = false,
     },
@@ -9,4 +7,4 @@ M.copilot = {
     },
 }
 
-return M
+require('copilot').setup(options)
