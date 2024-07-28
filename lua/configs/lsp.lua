@@ -9,4 +9,4 @@ local options  = {
     },
 }
 
-require("nvim-cmp").setup(options)
+require("nvim_cmp").setup(options)
