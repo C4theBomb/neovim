@@ -8,3 +8,5 @@ local options  = {
         { name = "path",     group_index = 2 },
     },
 }
+
+require("nvim-cmp").setup(options)

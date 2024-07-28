@@ -1,12 +1,10 @@
 return {
     { "sitiom/nvim-numbertoggle", lazy = false, },
-
-
     { "junegunn/gv.vim",          cmd = { "GV" } },
     { "mbbill/undotree",          cmd = { "UndotreeToggle" } },
     { "folke/trouble.nvim",       cmd = { "Trouble" }},
     { 'tpope/vim-fugitive', keys = { "<leader>gs", "gu", "gh" } },
-    { "zbirenbaum/copilot.lua",   event = "InsertEnter",                             config = function() require("configs.copilog") end },
+    { "zbirenbaum/copilot.lua",   event = "InsertEnter",                             config = function() require("configs.copilot") end },
     { "nvim-tree/nvim-tree.lua",  cmd = { "NvimTreeToggle", "NvimTreeFocus" },       config = function() require("configs.nvimtree") end },
     { "folke/zen-mode.nvim",      keys = { "<leader>zz" },                           config = function() require("configs.zenmode") end },
     { "stevearc/conform.nvim",    config = function() require("configs.conform") end },
@@ -15,7 +13,7 @@ return {
     { "kylechui/nvim-surround", event = "VeryLazy", config = function() require("configs.nvim-surround") end },
     {
         "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPrev iew", "MarkdownPreviewToggle", "MarkdownPreviewStop" },
+        cmd = { "MarkdownPreview", "MarkdownPreviewToggle", "MarkdownPreviewStop" },
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
