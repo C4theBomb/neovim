@@ -77,10 +77,5 @@ map("n", "<leader>tf", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { des
 map("n", "<leader>tl", "<cmd>Trouble loclist toggle<CR>", { desc = "Errors Open location list" })
 map("n", "<leader>tq", "<cmd>Trouble qflist toggle<CR>", { desc = "Errors Open quickfix fist" })
 
--- Fugitive
-map("n", "<leader>gs", "<cmd>Git<CR>", { desc = "Fugitive Git Toggle window" })
-map("n", "gu", "<cmd> diffget //2<CR>", { desc = "Fugitive Git grab right" })
-map("n", "gu", "<cmd> diffget //3<CR>", { desc = "Fugitive Git grab left" })
-
 -- ZenMode
 map("n", "<leader>zz", "<cmd>ZenMode<CR>", { desc = "ZenMode Toggle window" })

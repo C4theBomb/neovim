@@ -3,7 +3,6 @@ return {
     { "junegunn/gv.vim",          cmd = { "GV" } },
     { "mbbill/undotree",          cmd = { "UndotreeToggle" } },
     { "folke/trouble.nvim",       cmd = { "Trouble" }},
-    { 'tpope/vim-fugitive', keys = { "<leader>gs", "gu", "gh" } },
     { "zbirenbaum/copilot.lua",   event = "InsertEnter",                             config = function() require("configs.copilot") end },
     { "nvim-tree/nvim-tree.lua",  cmd = { "NvimTreeToggle", "NvimTreeFocus" },       config = function() require("configs.nvimtree") end },
     { "folke/zen-mode.nvim",      keys = { "<leader>zz" },                           config = function() require("configs.zenmode") end },
@@ -11,6 +10,14 @@ return {
     { "zbirenbaum/copilot-cmp", config = function() require("copilot_cmp").setup() end },
     { "hrsh7th/nvim-cmp", dependencies = { "zbirenbaum/copilot-cmp" }, config = function() require("configs.lsp") end },
     { "kylechui/nvim-surround", event = "VeryLazy", config = function() require("configs.nvim-surround") end },
+    {
+        "tpope/vim-fugitive",
+        keys = {
+            { "<leader>gs", "<cmd>Git<CR>",         desc = "Git Toggle window" },
+            { "gu",         "<cmd>diffget //2<CR>", desc = "Git Diff right side" },
+            { "gh",         "<cmd>diffget //3<CR>", desc = "Git Diff left side" },
+        },
+    },
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreview", "MarkdownPreviewToggle", "MarkdownPreviewStop" },
