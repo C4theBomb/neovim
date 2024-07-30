@@ -76,6 +76,3 @@ map("n", "<leader>tt", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Errors O
 map("n", "<leader>tf", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Errors Open buffer diagnostics" })
 map("n", "<leader>tl", "<cmd>Trouble loclist toggle<CR>", { desc = "Errors Open location list" })
 map("n", "<leader>tq", "<cmd>Trouble qflist toggle<CR>", { desc = "Errors Open quickfix fist" })
-
--- ZenMode
-map("n", "<leader>zz", "<cmd>ZenMode<CR>", { desc = "ZenMode Toggle window" })

@@ -2,8 +2,8 @@ local options = {
     filters = {
         dotfiles = false,
         git_ignored = true,
-        custom = { "node_modules", "venv", "__pycache__" },
-        exclude = {},
+        custom = { "git/", "node_modules/", "venv/", "__pycache__" },
+        exclude = { },
     },
     disable_netrw = true,
     hijack_netrw = true,

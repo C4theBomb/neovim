@@ -2,14 +2,33 @@ return {
     { "sitiom/nvim-numbertoggle", lazy = false, },
     { "junegunn/gv.vim",          cmd = { "GV" } },
     { "mbbill/undotree",          cmd = { "UndotreeToggle" } },
-    { "folke/trouble.nvim",       cmd = { "Trouble" }},
+    { "folke/trouble.nvim",       cmd = { "Trouble" }, opts = {}},
     { "zbirenbaum/copilot.lua",   event = "InsertEnter",                             config = function() require("configs.copilot") end },
     { "nvim-tree/nvim-tree.lua",  cmd = { "NvimTreeToggle", "NvimTreeFocus" },       config = function() require("configs.nvimtree") end },
     { "folke/zen-mode.nvim",      keys = { "<leader>zz" },                           config = function() require("configs.zenmode") end },
     { "stevearc/conform.nvim",    config = function() require("configs.conform") end },
-    { "zbirenbaum/copilot-cmp", config = function() require("copilot_cmp").setup() end },
-    { "hrsh7th/nvim-cmp", dependencies = { "zbirenbaum/copilot-cmp" }, config = function() require("configs.lsp") end },
-    { "kylechui/nvim-surround", event = "VeryLazy", config = function() require("configs.nvim-surround") end },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            {
+                "zbirenbaum/copilot-cmp",
+                config = function()
+                    require("copilot_cmp").setup()
+                end,
+            },
+        },
+        opts = {
+            sources = {
+                { name = "nvim_lsp", group_index = 2 },
+                { name = "copilot",  group_index = 2 },
+                { name = "luasnip",  group_index = 2 },
+                { name = "buffer",   group_index = 2 },
+                { name = "nvim_lua", group_index = 2 },
+                { name = "path",     group_index = 2 },
+            },
+        },
+    },
+    { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
     {
         "tpope/vim-fugitive",
         keys = {
@@ -20,9 +39,10 @@ return {
     },
     {
         "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreview", "MarkdownPreviewToggle", "MarkdownPreviewStop" },
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
+        init = function() vim.g.mkdp_filetypes = { "markdown" } end,
         ft = { "markdown" },
-        build = function() vim.fn["mkdp#util#install"]() end,
     },
     {
         "neovim/nvim-lspconfig",

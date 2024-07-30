@@ -36,4 +36,4 @@ o.foldenable = true
 
 g.undotree_WindowLayout = 4
 g.undotree_DiffpanelHeight = 15
-g.undotree_SplitWidth = 60
+g.undotree_SplitWidth = 40
