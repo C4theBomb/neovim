@@ -41,12 +41,9 @@ require("mason-lspconfig").setup({
                 }
             }
         end,
-        ["clangd"] = function()
-            local lspconfig = require("lspconfig")
-            lspconfig.clangd.setup {
-                capabilities = capabilities,
-                cmd = "clangd",
-            }
-        end,
     }
+})
+
+require('lspconfig').clangd.setup({
+    capabilities = capabilities,
 })
