@@ -2,7 +2,7 @@ local options = {
     filters = {
         dotfiles = false,
         git_ignored = true,
-        custom = { ".git" },
+        custom = { ".git", "__pycache__" },
         exclude = { ".gitignore", ".gitattributes", ".gitmodules" },
     },
     disable_netrw = true,
