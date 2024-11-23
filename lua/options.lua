@@ -1,11 +1,11 @@
-require "nvchad.options"
+require("nvchad.options")
 
 local o = vim.o
 local opt = vim.opt
 local g = vim.g
 
-g.mapleader = ' '
-g.maplocalleader = ' '
+g.mapleader = " "
+g.maplocalleader = " "
 
 opt.nu = true
 opt.relativenumber = true
@@ -29,7 +29,7 @@ opt.termguicolors = true
 opt.scrolloff = 8
 opt.isfname:append("@-@")
 
-o.foldcolumn = '0'
+o.foldcolumn = "0"
 o.foldlevel = 99
 o.foldlevelstart = 99
 o.foldenable = true

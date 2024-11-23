@@ -1,10 +1,10 @@
 local options = {
-    suggestion = {
-        enable = false,
-    },
-    panel = {
-        enable = false,
-    },
+	suggestion = {
+		enable = false,
+	},
+	panel = {
+		enable = false,
+	},
 }
 
-require('copilot').setup(options)
+require("copilot").setup(options)

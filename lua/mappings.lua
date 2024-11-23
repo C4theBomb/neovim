@@ -7,24 +7,36 @@ map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "General Toggle nvcheat
 
 -- File
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "File Save" })
-map("n", "<leader>f", function() require("conform").format({ lsp_fallback = true }) end, { desc = "File Format" })
+map("n", "<leader>f", function()
+	require("conform").format({ lsp_fallback = true })
+end, { desc = "File Format" })
 
 -- Buffer
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "Buffer new" })
-map("n", "<tab>", function() require("nvchad.tabufline").next() end, { desc = "Buffer goto next" })
-map("n", "<S-tab>", function() require("nvchad.tabufline").prev() end, { desc = "Buffer goto prev" })
-map("n", "<leader>x", function() require("nvchad.tabufline").close_buffer() end, { desc = "Buffer Close" })
+map("n", "<tab>", function()
+	require("nvchad.tabufline").next()
+end, { desc = "Buffer goto next" })
+map("n", "<S-tab>", function()
+	require("nvchad.tabufline").prev()
+end, { desc = "Buffer goto prev" })
+map("n", "<leader>x", function()
+	require("nvchad.tabufline").close_buffer()
+end, { desc = "Buffer Close" })
 
 -- nvimtree
 map("n", "<leader>pv", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 
 -- Terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal Escape terminal mode" })
-map("n", "<leader>h", function() require("nvchad.term").new { pos = "sp" } end, { desc = "Terminal New horizontal term" })
-map({ "n", "t" }, "<A-h>", function() require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" } end,
-    { desc = "Terminal New horizontal term" })
-map({ "n", "t" }, "<A-i>", function() require("nvchad.term").toggle { pos = "float", id = "floatTerm" } end,
-    { desc = "Terminal Toggle floating term" })
+map("n", "<leader>h", function()
+	require("nvchad.term").new({ pos = "sp" })
+end, { desc = "Terminal New horizontal term" })
+map({ "n", "t" }, "<A-h>", function()
+	require("nvchad.term").toggle({ pos = "sp", id = "htoggleTerm" })
+end, { desc = "Terminal New horizontal term" })
+map({ "n", "t" }, "<A-i>", function()
+	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
+end, { desc = "Terminal Toggle floating term" })
 
 -- Vertical
 map("n", "<C-d>", "<C-d>zz", { desc = "Vertical Scroll down and keep cursor in same position" })
@@ -33,8 +45,12 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Vertical Scroll up and keep cursor in sam
 -- Find/Replace
 map("n", "n", "nzzzv", { desc = "Find/Replace Move to next match" })
 map("n", "N", "Nzzzv", { desc = "Find/Replace Move to previous match" })
-map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = "Find/Replace Replace current word" })
+map(
+	"n",
+	"<leader>s",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Find/Replace Replace current word" }
+)
 
 -- Editing
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Editing Move line down" })
@@ -52,20 +68,24 @@ map("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Navigation Move to previous 
 
 -- Telescope
 map("n", "<leader>pf", "<cmd>Telescope find_files<CR>", { desc = "Telescope Find files" })
-map("n", "<leader>pa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-    { desc = "Telescope Find all files" })
+map(
+	"n",
+	"<leader>pa",
+	"<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+	{ desc = "Telescope Find all files" }
+)
 map("n", "<leader>ps", "<cmd>Telescope live_grep<CR>", { desc = "Telescope Live grep" })
 map("n", "<leader>pz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Telescope Find in current buffer" })
 map("n", "<leader>pws", function()
-    local word = vim.fn.expand("<cword>")
-    require('telescope.builtin').grep_string({ search = word })
+	local word = vim.fn.expand("<cword>")
+	require("telescope.builtin").grep_string({ search = word })
 end, { desc = "Telescope Search for current word" })
 map("n", "<leader>pWs", function()
-    local word = vim.fn.expand("<cWORD>")
-    require('telescope.builtin').grep_string({ search = word })
+	local word = vim.fn.expand("<cWORD>")
+	require("telescope.builtin").grep_string({ search = word })
 end, { desc = "Telescope Search for current WORD" })
 map("n", "ws", function()
-    require('telescope.builtin').lsp_document_symbols({ ignore_symbols = 'variable' })
+	require("telescope.builtin").lsp_document_symbols({ ignore_symbols = "variable" })
 end, { desc = "Telescope View workspace symbols" })
 
 -- Undotree
